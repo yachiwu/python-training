@@ -1,16 +1,19 @@
 #建立web api
 #教學 from https://medium.com/datainpoint/flask-web-api-quickstart-3b13d96cccc2
+#將城市與國家名稱更改為繁體中文
+#解決方式是在 Flask 應用程式中加入 app.config["JSON_AS_ASCII"] = False 的參數設定。
 import flask
 from flask import jsonify
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
+app.config["JSON_AS_ASCII"] = False
 
 # test data
 tpe = {
     "id": 0,
-    "city_name": "Taipei",
-    "country_name": "Taiwan",
+    "city_name": "台北",
+    "country_name": "台灣",
     "is_capital": True,
     "location": {
         "longitude": 121.569649,
@@ -19,8 +22,8 @@ tpe = {
 }
 nyc = {
     "id": 1,
-    "city_name": "New York",
-    "country_name": "United States",
+    "city_name": "紐約",
+    "country_name": "美國",
     "is_capital": False,
     "location": {
         "longitude": -74.004364,
@@ -29,8 +32,8 @@ nyc = {
 }
 ldn = {
     "id": 2,
-    "city_name": "London",
-    "country_name": "United Kingdom",
+    "city_name": "倫敦",
+    "country_name": "英國",
     "is_capital": True,
     "location": {
         "longitude": -0.114089,
